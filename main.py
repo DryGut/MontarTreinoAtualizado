@@ -1,3 +1,3 @@
 import os
 
-os.system("python3 planilha.py")
+os.system("python3 bdinsert.py")

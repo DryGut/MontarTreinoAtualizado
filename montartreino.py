@@ -1,80 +1,76 @@
-#programa para criação de planilha de treino
+#program to create a trainning plan
+import sys
 
-class Personal:
-    
-  def __init__(self, nome, sobrenome) :
-    self.nome = nome
-    self.sobrenome = sobrenome
-    self.superior = []
-    self.inferior = []
+arquivo = "treino.txt"
 
-  
-  def personal(self):
-    
-    nome_completo = self.nome+" "+self.sobrenome
-    print(f"Bem vindo {nome_completo.title()} ")
-    print("Vamos montar o treino do aluno!")
-    
-    self.quantidade= int(input("Quantos exericios : ").strip())
-    print("-"*30)
 
-  
-  def treino(self):
-    
-    print("Treino Superior :")
-    
-    for c in range(1, self.quantidade + 1):
-      MontarSuperior = input(f"{c} Exercício de Superior do aluno : ").lower().strip()
-      print("-"*30)
-      self.superior.append(MontarSuperior)
-    
-    print("Treino Inferior :")
-    
-    for i in range(1,self.quantidade + 1):
-      MontarInferior = input(f"{i} Exercício de Inferior do aluno : ").lower().strip()
-      print("-"*30)
-      self.inferior.append(MontarInferior)
+class Personal():
+    """build the personal trainer profile"""
+    def __init__(self, nome, sobrenome):
+        """initialize the class"""
 
-  
-  def mostrar_treino(self):
-    
-    question = input("Exibir Treino? [Sim/Não]: ").lower().strip()
-    if question == 'sim':
-      
-      print("-\n"*30)
-      print("Superior:\n")
-      for treinosuperior in self.superior:
-        print(treinosuperior)
+        self.nome = nome
+        self.sobrenome = sobrenome
+        self.superior = []
+        self.inferior = []
 
-      print("-\n"*30)
-      print("Inferior:\n")
-      for treinoinferior in self.inferior:
-        print(treinoinferior)
-      print("-"*30)
-    
-    arquivo = 'treino.txt'
-      
-    for item in self.superior:
-      a = item
-      
-    for item in self.inferior:
-      b = item
-      
-    try:
-      with open(arquivo, 'a') as arq:
-        itens = a+"\n"+b
-        arq.write(itens)
-    except FileNotFoundError:
-      return None
+    def personal(self):
+        """greet the user and start to create the trainning plan"""
 
-class Aluno:
-  
-  def __init__(self, name, age):
-    
-    self.name = name
-    self.age = age
+        nome_completo = self.nome + " " + self.sobrenome
+        print("\n" + f"Bem vindo {nome_completo.title()} ")
+        print("Vamos montar o treino do aluno!")
 
-  def treino_do_aluno(self):
-    
-    print(f'Aluno: {self.name.title()}')
-    print(f'Idade: {self.age}')
+        self.quantidade = int(input("Quantos exercicios : ").strip())
+        print("-" * 30)
+
+    def treino(self):
+        """build the training plan"""
+
+        print("Treino Superior :")
+
+        for c in range(1, self.quantidade + 1):
+            montar_superior = input(
+                f"{c} Exercício de Superior do aluno : ").lower().strip()
+            print("-" * 30)
+            self.superior.append(montar_superior)
+
+        print("Treino Inferior :")
+
+        for i in range(1, self.quantidade + 1):
+            montar_inferior = input(
+                f"{i} Exercício de Inferior do aluno : ").lower().strip()
+            print("-" * 30)
+            self.inferior.append(montar_inferior)
+
+    def mostrar_treino(self):
+        """show the trainning plan and save in a file"""
+
+        question = input("Exibir Treino? [Sim/Não]: \n").lower().strip()
+        if question == 'sim':
+
+            sys.stdout = open(arquivo, "a")
+            print("-" * 30 + "\nSuperior:\n")
+            for treino_superior in self.superior:
+                print(treino_superior)
+
+            print("-" * 30 + "\nInferior:\n")
+            for treino_inferior in self.inferior:
+                print(treino_inferior)
+            print("-" * 30)
+
+
+class Aluno():
+    """create the costumer profile"""
+    def __init__(self, name, age):
+        """initialize the class"""
+
+        self.name = name
+        self.age = age
+
+    def treino_do_aluno(self):
+        """build the profile"""
+
+        sys.stdout = open(arquivo, "a")
+        print("\n" + f'Aluno: {self.name.title()}')
+        print(f'Idade: {self.age}')
