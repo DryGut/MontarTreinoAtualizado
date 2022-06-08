@@ -5,9 +5,10 @@ arquivo = "treino.txt"
 
 
 class Personal():
-    """build the personal trainer profile"""
+    """constroi o perfil do personal trainer"""
+    
     def __init__(self, nome, sobrenome):
-        """initialize the class"""
+        """inicializa a classe"""
 
         self.nome = nome
         self.sobrenome = sobrenome
@@ -15,7 +16,7 @@ class Personal():
         self.inferior = []
 
     def personal(self):
-        """greet the user and start to create the trainning plan"""
+        """sauda o usuario e inicia a criação da planilha de treino"""
 
         nome_completo = self.nome + " " + self.sobrenome
         print("\n" + f"Bem vindo {nome_completo.title()} ")
@@ -25,7 +26,7 @@ class Personal():
         print("-" * 30)
 
     def treino(self):
-        """build the training plan"""
+        """cria a planilha de treino"""
 
         print("Treino Superior :")
 
@@ -44,7 +45,7 @@ class Personal():
             self.inferior.append(montar_inferior)
 
     def mostrar_treino(self):
-        """show the trainning plan and save in a file"""
+        """mostra a planilha de treino"""
 
         question = input("Exibir Treino? [Sim/Não]: \n").lower().strip()
         if question == 'sim':
@@ -61,16 +62,16 @@ class Personal():
 
 
 class Aluno():
-    """create the costumer profile"""
-    def __init__(self, name, age):
+    """cria perfil do aluno"""
+    def __init__(self, nome, idade):
         """initialize the class"""
 
-        self.name = name
-        self.age = age
+        self.nome = nome
+        self.idade = idade
 
     def treino_do_aluno(self):
-        """build the profile"""
+        """monta o perfil para exibir na planilha"""
 
         sys.stdout = open(arquivo, "a")
-        print("\n" + f'Aluno: {self.name.title()}')
-        print(f'Idade: {self.age}')
+        print("\n" + f'Aluno: {self.nome.title()}')
+        print(f'Idade: {self.idade}')
