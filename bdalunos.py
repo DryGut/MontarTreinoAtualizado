@@ -64,7 +64,7 @@ class ClientesDb():
     def inserir_dados(self):
         """inserindo dados dos alunos"""
 
-        self.nome = input('Nome: ')
+        self.nome = input('Nome: ').title()
         self.idade = input('Idade: ')
         self.cpf = input('CPF: ')
         self.email = input('Email: ')
