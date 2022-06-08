@@ -94,9 +94,15 @@ class ClientesDb():
     def localizador(self, id):
         """localiza os dados antes de editar ou deletar"""
 
-        l = self.db.cursor.execute('SELECT * FROM alunos WHERE id = ?', (id,))
+        l = self.db.cursor.execute('SELECT * FROM alunos WHERE id = ?', (id, ))
         return l.fetchone()
 
+    def novo_cadastro(self, nome):
+        """localiza cadastro"""
+
+        n = self.db.cursor.execute('SELECT * FROM alunos WHERE nome = ?',
+                                   (nome, ))
+        return n.fetchone()
 
     def atualizar_dados(self, id):
         """atualiza os dados dos alunos cadastrados"""
@@ -129,20 +135,21 @@ class ClientesDb():
             raise ValueError
 
     def deletar_dados(self, id):
-      """deleta os dados existentes"""
+        """deleta os dados existentes"""
 
-      try:
-        a = self.localizador(id)
+        try:
+            a = self.localizador(id)
 
-        if a:
-          self.db.cursor.execute("""
+            if a:
+                self.db.cursor.execute(
+                    """
                                  DELETE FROM alunos WHERE id = ? 
-                                 """, (id,))
-          self.db.commit_db()
-          print('Dados removidos com Sucesso')
+                                 """, (id, ))
+                self.db.commit_db()
+                print('Dados removidos com Sucesso')
 
-        else:
-          print('Dados Inexistentes')
+            else:
+                print('Dados Inexistentes')
 
-      except sqlite3.ValueError:
-        raise ValueError
+        except sqlite3.ValueError:
+            raise ValueError

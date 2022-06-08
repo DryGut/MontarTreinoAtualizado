@@ -63,7 +63,7 @@ class Personal():
 
 class Aluno():
     """cria perfil do aluno"""
-    def __init__(self, nome, idade):
+    def __init__(self, nome, *idade):
         """initialize the class"""
 
         self.nome = nome

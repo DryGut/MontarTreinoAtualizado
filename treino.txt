@@ -1,0 +1,15 @@
+
+Aluno: Marley Martins
+Idade: ()
+Exibir Treino? [Sim/Não]: 
+------------------------------
+Superior:
+
+peito
+triceps
+------------------------------
+Inferior:
+
+perna
+panturrilha
+------------------------------
