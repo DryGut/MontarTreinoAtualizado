@@ -20,17 +20,17 @@ class Personal():
 
         nome_completo = self.nome + " " + self.sobrenome
         print("\n" + f"Bem vindo {nome_completo.title()} ")
-        print("Vamos montar o treino do aluno!")
+        print("\nVamos montar o treino do aluno!")
 
-        self.quantidade = int(input("Quantos exercicios : ").strip())
-        print("-" * 30)
+        self.quantidadeSuperior = int(input("Quantos exercicios de superior : ").strip())
+        self.quantidadeInferior = int(input("Quantos exercicios de Inferior : ").strip())
 
     def treino(self):
         """cria a planilha de treino"""
 
         print("Treino Superior :")
 
-        for c in range(1, self.quantidade + 1):
+        for c in range(1, self.quantidadeSuperior + 1):
             montar_superior = input(
                 f"{c} Exercício de Superior do aluno : ").lower().strip()
             print("-" * 30)
@@ -38,7 +38,7 @@ class Personal():
 
         print("Treino Inferior :")
 
-        for i in range(1, self.quantidade + 1):
+        for i in range(1, self.quantidadeInferior + 1):
             montar_inferior = input(
                 f"{i} Exercício de Inferior do aluno : ").lower().strip()
             print("-" * 30)
@@ -63,6 +63,7 @@ class Personal():
 
 class Aluno():
     """cria perfil do aluno"""
+    
     def __init__(self, nome, *idade):
         """initialize the class"""
 

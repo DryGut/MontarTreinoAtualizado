@@ -100,9 +100,9 @@ class ClientesDb():
     def novo_cadastro(self, nome):
         """localiza cadastro"""
 
-        n = self.db.cursor.execute('SELECT * FROM alunos WHERE nome = ?',
-                                   (nome, ))
-        return n.fetchone()
+        n = self.db.cursor.execute("SELECT nome FROM alunos")
+        
+        return list(n.fetchone())
 
     def atualizar_dados(self, id):
         """atualiza os dados dos alunos cadastrados"""

@@ -9,7 +9,7 @@ professores = {}
 alunos = ClientesDb()
 
 while treino:
-    prof = input("Insira seu nome: ").split()
+    prof = input("\nInsira seu nome: ").split()
 
     for i in prof:
         professores[prof[0]] = prof[1]
@@ -20,13 +20,21 @@ while treino:
         prof.treino()
 
     aluno = input("\nInsira o Nome do Aluno: ").title()
-
+      
     if aluno in alunos.novo_cadastro(aluno):
       nome = Aluno(aluno)
       nome.treino_do_aluno()
       prof.mostrar_treino()
-    
+      treino = False
+      
     else:
-      print('O aluno nao esta cadastrado')
+      print('Aluno nao Cadastrado')
+      
+      msg = input('\nGostaria de adicionar um novo aluno?(S/N): ')
+      if msg == 's':
+        alunos.inserir_dados()
 
+      else:
+        print('Saindo...')
+    
     treino = False

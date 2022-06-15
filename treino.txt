@@ -1,5 +1,39 @@
 
-Aluno: Marley Martins
+Aluno: Renato Martins
+Idade: ()
+Exibir Treino? [Sim/Não]: 
+------------------------------
+Superior:
+
+peito
+triceps
+------------------------------
+Inferior:
+
+perna
+panturrilha
+------------------------------
+
+Aluno: Renato Martins
+Idade: ()
+Exibir Treino? [Sim/Não]: 
+------------------------------
+Superior:
+
+peito
+triceps
+------------------------------
+Inferior:
+
+perna
+panturrilha
+------------------------------
+
+Aluno: Renato Martins
+Idade: ()
+Exibir Treino? [Sim/Não]: 
+
+Aluno: Renato Martins
 Idade: ()
 Exibir Treino? [Sim/Não]: 
 ------------------------------
